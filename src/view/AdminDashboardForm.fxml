@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="AdminDashContext" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardFormController">
+   <children>
+      <BorderPane prefHeight="1050.0" prefWidth="1920.0">
+         <top>
+            <AnchorPane prefHeight="1050.0" prefWidth="1920.0" style="-fx-background-color: EAEEF4;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="-3.0" layoutY="-6.0" prefHeight="66.0" prefWidth="1923.0" style="-fx-background-color: #1D282D;">
+                     <children>
+                        <Label fx:id="lblDay" prefHeight="34.0" prefWidth="120.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="320.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="lblDate" prefHeight="34.0" prefWidth="115.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="lblTime" prefHeight="34.0" prefWidth="123.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#AdminInfoOnAction" prefHeight="36.0" prefWidth="181.0" style="-fx-background-color: tranceparents; -fx-background-radius: 60;" text="Hasindi Mudithya" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="1099.0" top="17.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="1050.0" prefWidth="253.0" style="-fx-background-color: #1D282D;">
+                     <children>
+                        <Label text="Gauri" textFill="WHITE">
+                           <font>
+                              <Font name="Vivaldi Italic" size="63.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="25.0" top="25.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Jewellers" textFill="WHITE">
+                           <font>
+                              <Font name="Vivaldi Italic" size="46.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="65.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Separator opacity="0.32" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets bottom="15.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#DashboardOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="Dashboard" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="25.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="btnCustomer" mnemonicParsing="false" onAction="#CustomerOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Customer" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets left="9.0" right="42.0" />
+                           </padding>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_person_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnOrder" mnemonicParsing="false" onAction="#OrderOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Create Order" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_list_alt_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="btnSuppliers" mnemonicParsing="false" onAction="#SuppliersOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Supplier" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_inventory_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="45.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btnAddProduct" mnemonicParsing="false" onAction="#AddProductOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Buy Product" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_shopping_bag_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="2.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btnCategory" mnemonicParsing="false" onAction="#CategoryOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Category" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_diamond_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="36.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AllOrderOnAction" mnemonicParsing="false" onAction="#GoldRateOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Gold Rate" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_star_rate_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets right="28.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btnEmployee" mnemonicParsing="false" onAction="#EmployeeOnAction" prefHeight="63.0" prefWidth="295.0" style="-fx-background-color: transparents;" text="   Staff" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets left="9.0" right="87.0" />
+                           </padding>
+                           <graphic>
+                              <ImageView fitHeight="37.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_groups_white_24dp.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="28.0" prefWidth="172.0" style="-fx-background-color: #A38340; -fx-background-radius: 65;" text="Logout" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="65.0" top="140.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <AnchorPane fx:id="loadFormContext" layoutX="287.0" layoutY="94.0" prefHeight="917.0" prefWidth="1601.0" style="-fx-background-color: white;">
+                     <children>
+                        <AnchorPane layoutX="43.0" layoutY="495.0" prefHeight="362.0" prefWidth="1252.0" style="-fx-background-color: #000143;">
+                           <children>
+                              <Label alignment="CENTER" layoutX="71.0" layoutY="146.0" opacity="0.18" prefHeight="140.0" prefWidth="340.0" style="-fx-border-color: white;">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="456.0" layoutY="146.0" opacity="0.18" prefHeight="140.0" prefWidth="340.0" style="-fx-border-color: white;">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="841.0" layoutY="146.0" opacity="0.18" prefHeight="140.0" prefWidth="340.0" style="-fx-border-color: white;">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="44.0" layoutY="31.0" text="Income" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Text fill="WHITE" layoutX="130.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Income">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="521.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Expensive">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="903.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Profit">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Label layoutX="321.0" layoutY="198.0" opacity="0.64" prefHeight="54.0" prefWidth="38.0" style="-fx-background-color: white;" text="                     " />
+                              <ImageView fitHeight="81.0" fitWidth="75.0" layoutX="302.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/up-circular-256.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="81.0" fitWidth="75.0" layoutX="694.0" layoutY="188.0" opacity="0.64" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/—Pngtree—vector%20down%20arrow%20icon_4233279.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="1065.0" layoutY="172.0" opacity="0.69" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../accert/outline_query_stats_white_36dp.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="lblTotalIncome" layoutX="102.0" layoutY="206.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="37.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTotalExpensive" layoutX="494.0" layoutY="206.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="37.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTotalProfit" layoutX="873.0" layoutY="206.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="37.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <effect>
+                              <ColorAdjust brightness="0.05" contrast="0.13" />
+                           </effect>
+                        </AnchorPane>
+                        <Label alignment="TOP_LEFT" layoutX="122.0" layoutY="92.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #00B8EE;" text="   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="802.0" layoutY="279.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #F170B7;" text="   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="474.0" layoutY="92.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #019C50;" text="   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                        <Text fill="WHITE" layoutX="504.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suppliers">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Text>
+                        <Label alignment="TOP_LEFT" layoutX="452.0" layoutY="279.0" opacity="0.96" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #D66FF2;" text="   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="826.0" layoutY="92.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #E88D11;" text="   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="1174.0" layoutY="92.0" prefHeight="140.0" prefWidth="305.0" style="-fx-background-color: #C43C2E;" text="   " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets bottom="6.0" left="6.0" right="6.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="474.0" layoutY="211.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #088947;" />
+                        <Label layoutX="122.0" layoutY="211.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #08A4D2;" />
+                        <Label layoutX="452.0" layoutY="398.0" opacity="0.77" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #B160C8;" />
+                        <Label layoutX="802.0" layoutY="398.0" opacity="0.77" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #D0619E;" />
+                        <Label layoutX="826.0" layoutY="211.0" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #D48112;" />
+                        <Label layoutX="1174.0" layoutY="211.0" opacity="0.53" prefHeight="21.0" prefWidth="305.0" style="-fx-background-color: #A13226;" />
+                        <Text fill="WHITE" layoutX="152.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="859.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="1210.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Items">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="481.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Orders">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="833.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Orders">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="114.0" fitWidth="103.0" layoutX="288.0" layoutY="110.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../accert/people.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="114.0" fitWidth="103.0" layoutX="640.0" layoutY="111.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../accert/parcel.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="648.0" layoutY="305.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../accert/order.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="114.0" fitWidth="103.0" layoutX="995.0" layoutY="111.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../accert/multiple-users-silhouette.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="995.0" layoutY="305.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../accert/list.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="91.0" fitWidth="100.0" layoutX="1358.0" layoutY="117.0" opacity="0.14" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../accert/label.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblCustomerCount" layoutX="160.0" layoutY="117.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSupplierCount" layoutX="511.0" layoutY="117.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCustomerOrderCount" layoutX="487.0" layoutY="307.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblStaffCount" layoutX="864.0" layoutY="117.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblSupplierOrderCount" layoutX="840.0" layoutY="307.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblItemCount" layoutX="1211.0" layoutY="117.0" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="41.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTotalProfit1" alignment="CENTER" layoutX="1317.0" layoutY="529.0" opacity="0.74" prefHeight="295.0" prefWidth="261.0" style="-fx-background-color: #B1B1B1;">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Text layoutX="1399.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Details">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1345.0" layoutY="654.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank    :  ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1345.0" layoutY="681.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A/c No : ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Separator layoutX="1351.0" layoutY="593.0" prefWidth="200.0" style="-fx-background-color: black;" />
+                        <Text layoutX="1422.0" layoutY="654.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOC" wrappingWidth="100.14453125">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1422.0" layoutY="681.0" strokeType="OUTSIDE" strokeWidth="0.0" text="234567898" wrappingWidth="100.14453125">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1422.0" layoutY="738.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NSB" wrappingWidth="100.14453125">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1422.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="22345678" wrappingWidth="100.14453125">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1345.0" layoutY="738.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank    :  ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1345.0" layoutY="765.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A/c No : ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="employeeContext" prefHeight="917.0" prefWidth="1601.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeFormController">
+   <children>
+      <TextField fx:id="txtSearchId" layoutX="1263.0" layoutY="439.0" opacity="0.78" prefHeight="26.0" prefWidth="322.0" promptText="Search By Id" style="-fx-background-radius: 65;">
+         <effect>
+            <ColorAdjust brightness="-0.22" contrast="-0.33" hue="0.38" saturation="-0.4" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextField>
+      <Button layoutX="1329.0" layoutY="392.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="199.0" style="-fx-background-color: #D48112; -fx-background-radius: 0.8EM;" text="Search by Id">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="41.0" layoutY="22.0" prefHeight="55.0" prefWidth="333.0" text="Manage Employee">
+         <font>
+            <Font name="System Bold" size="38.0" />
+         </font>
+      </Label>
+      <Separator layoutY="115.0" prefHeight="3.0" prefWidth="1601.0" style="-fx-background-color: black;" />
+      <Label layoutX="41.0" layoutY="77.0" text="Dashboard/All Employee Report">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="1424.0" layoutY="78.0" text="Home   &gt; Employee">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Separator layoutY="361.0" prefHeight="3.0" prefWidth="1601.0" style="-fx-background-color: black;" />
+      <Button layoutX="1333.0" layoutY="509.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" style="-fx-background-color: #D48112; -fx-background-radius: 0.8EM;" text="Search by Name">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtSearchName" layoutX="1267.0" layoutY="556.0" opacity="0.78" prefHeight="28.0" prefWidth="322.0" promptText="Search By Name" style="-fx-background-radius: 65;">
+         <effect>
+            <ColorAdjust brightness="-0.22" contrast="-0.33" hue="0.38" saturation="-0.4" />
+         </effect>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblAllEmployee" layoutX="33.0" layoutY="427.0" prefHeight="444.0" prefWidth="1220.0">
+         <columns>
+            <TableColumn fx:id="colId" maxWidth="150.0" prefWidth="168.0" text="Id" />
+            <TableColumn fx:id="colName" prefWidth="242.0" text="Name" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="207.0" text="Address" />
+            <TableColumn fx:id="colNIC" prefWidth="203.0" text="NIC" />
+            <TableColumn fx:id="colEmail" prefWidth="212.0" text="E-Mail" />
+            <TableColumn fx:id="colContact" prefWidth="205.0" text="Contact No" />
+         </columns>
+      </TableView>
+      <JFXTextField fx:id="txtAddress" focusColor="BLACK" layoutX="526.0" layoutY="203.0" onKeyReleased="#textFieldsReleased" prefHeight="39.0" prefWidth="225.0" promptText="Address" unFocusColor="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtId" focusColor="BLACK" layoutX="51.0" layoutY="203.0" prefHeight="39.0" prefWidth="144.0" promptText="Employee Id" unFocusColor="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtName" focusColor="BLACK" layoutX="242.0" layoutY="203.0" onKeyReleased="#textFieldsReleased" prefHeight="39.0" prefWidth="233.0" promptText="Employee Name" unFocusColor="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContact" focusColor="BLACK" layoutX="1332.0" layoutY="203.0" onKeyReleased="#textFieldsReleased" prefHeight="31.0" prefWidth="215.0" promptText="Contact No" unFocusColor="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtEmail" focusColor="BLACK" layoutX="1071.0" layoutY="203.0" onKeyReleased="#textFieldsReleased" prefHeight="39.0" prefWidth="215.0" promptText="E-Mail" unFocusColor="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtNIC" focusColor="BLACK" layoutX="798.0" layoutY="203.0" onKeyReleased="#textFieldsReleased" prefHeight="39.0" prefWidth="225.0" promptText="NIC" unFocusColor="BLACK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnUpdate" layoutX="1084.0" layoutY="287.0" onAction="#updateEmployeeOnAction" prefHeight="55.0" prefWidth="199.0" style="-fx-background-color: #088947;" text="Update           ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="1325.0" layoutY="287.0" onAction="#deleteEmployeeOnAction" prefHeight="55.0" prefWidth="199.0" style="-fx-background-color: #BD392A;" text="Delete          ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnAdd" contentDisplay="RIGHT" layoutX="843.0" layoutY="287.0" onAction="#addEmployeeOnAction" prefHeight="55.0" prefWidth="199.0" style="-fx-background-color: #08A4D2;" text="Add             ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="972.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../accert/add-user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="1222.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../accert/edit.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="1459.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../accert/bin.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1344.0" layoutY="135.0" onAction="#clearOnAction" prefHeight="55.0" prefWidth="199.0" style="-fx-background-color: #3481B4;" text="Clear">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <Button layoutX="1338.0" layoutY="816.0" mnemonicParsing="false" onAction="#printOnAction" prefHeight="55.0" prefWidth="212.0" style="-fx-background-color: #019C50;" text="        Print Invoice" textFill="#fff9f9">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="1357.0" layoutY="826.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../accert/outline_print_white_24dp.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

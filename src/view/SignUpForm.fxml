@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="signUpContext" prefHeight="673.0" prefWidth="1141.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpFormController">
+   <children>
+      <ImageView fitHeight="673.0" fitWidth="1141.0" pickOnBounds="true">
+         <image>
+            <Image url="@../accert/signup.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.1" contrast="-0.05" />
+         </effect>
+      </ImageView>
+      <Pane layoutY="125.0" prefHeight="434.0" prefWidth="1141.0">
+         <children>
+            <JFXTextField fx:id="txtUserName" layoutX="130.0" layoutY="99.0" onKeyReleased="#TextFieldsReleased" prefHeight="31.0" prefWidth="232.0" promptText="User Name" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtEmail" layoutX="132.0" layoutY="161.0" onKeyReleased="#TextFieldsReleased" prefHeight="31.0" prefWidth="232.0" promptText="Email" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="btnSignUp" layoutX="151.0" layoutY="320.0" onAction="#signUpOnAction" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #B67566;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="96.0" layoutY="105.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../accert/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="96.0" layoutY="235.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../accert/padlock.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="96.0" layoutY="167.0" opacity="0.59" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../accert/email.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="105.0" layoutY="33.0" text="Create an Account">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="884.0" layoutY="195.0" onAction="#btnSignOnAction" prefHeight="44.0" prefWidth="112.0" style="-fx-background-color: #B67566;" text="Sign In" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="767.0" layoutY="110.0" prefHeight="50.0" prefWidth="345.0" text="If you already have an account, just ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="868.0" layoutY="60.0" text="One of us?">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="813.0" layoutY="135.0" prefHeight="50.0" prefWidth="254.0" text="sign in. We've missed you.">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXPasswordField fx:id="pwdPassword" layoutX="132.0" layoutY="229.0" onKeyReleased="#TextFieldsReleased" prefHeight="38.0" prefWidth="232.0" promptText="Password" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </JFXPasswordField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
