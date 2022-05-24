@@ -31,7 +31,6 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class TakeOrderFormController {
-
     public AnchorPane orderFormcontext;
     public JFXTextField txtOrderId;
     public JFXTextField txtOrderDate;
@@ -58,7 +57,7 @@ public class TakeOrderFormController {
     public TextField txtSelectproduct;
     public Button btnAddToCart;
 
-    public void initialize(){
+    public void initialize() {
         btnAddToCart.setDisable(true);
 
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -87,104 +86,103 @@ public class TakeOrderFormController {
 
     }
 
-    private void loadDate(){
+    private void loadDate() {
         txtOrderDate.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
     }
 
 
-    public void autoOrderId(){
-        try{
+    public void autoOrderId() {
+        try {
             ResultSet result = CrudUtil.execute("SELECT id FROM CusOrder ORDER BY id DESC LIMIT 1");
 
-            if(result.next()){
-
+            if (result.next()) {
                 String numRun = result.getString("id");
                 int col = numRun.length();
 
-                String num1 = numRun.substring(0,3);//first  (COI)
-                String num2 = numRun.substring(3,col);//last (1000)
+                String num1 = numRun.substring(0, 3);//first  (COI)
+                String num2 = numRun.substring(3, col);//last (1000)
 
                 int n = Integer.parseInt(num2);
                 n++;
 
                 String num3 = Integer.toString(n);
-                String fullnum = num1+num3;
+                String fullnum = num1 + num3;
                 txtOrderId.setText(fullnum);
 
-            }else{
+            } else {
                 txtOrderId.setText("COI1000");
             }
 
-        }catch (ClassNotFoundException | SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void LastCId(){
-        try{
+    public void LastCId() {
+        try {
             ResultSet result = CrudUtil.execute("SELECT id FROM Customer ORDER BY id DESC LIMIT 1");
 
-            if(result.next()){
+            if (result.next()) {
                 String numRun = result.getString("id");
                 txtLastCustomerId.setText(numRun);
-            }else{
+            } else {
             }
 
-        }catch (ClassNotFoundException | SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
     private void setItemDetails(String selectedItemCode) {
-        try{
+        try {
             Stock i = ItemCrudController.getItem(selectedItemCode);
 
-            if(i!=null) {
+            if (i != null) {
                 txtSelectproduct.setText(String.valueOf(i.getStockItem()));
                 txtDesc.setText(String.valueOf(i.getDescription()));
                 txtQtyOnHand.setText(String.valueOf(i.getQty()));
                 txtUnitPrice.setText(String.valueOf(i.getUnitPrice()));
             }
-        }  catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }  catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         btnAddToCart.setDisable(false);
     }
 
     private void setCustomerDetails(String selectedCustomerId) {
-        try{
+        try {
             Customer c = CustomerCrudController.getCustomer(selectedCustomerId);
 
-            if(c!=null){
+            if (c != null) {
                 txtCustomerName.setText(c.getName());
                 txtCustomerAddress.setText(c.getAddress());
                 txtCustomerEmail.setText(c.getEmail());
                 txtCustomerContact.setText(c.getContactNo());
             }
 
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
 
-        }catch(ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
 
         }
     }
 
     private void setItemCode() {
-        try{
+        try {
             cmbItemCode.setItems(FXCollections.observableArrayList(ItemCrudController.getItemCodes()));
 
-        }   catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }   catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private void setCustomerIds(){
+    private void setCustomerIds() {
 
         try {
 
@@ -194,10 +192,10 @@ public class TakeOrderFormController {
             cmbCustomerId.setItems(cIdObList);
 
 
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
 
-        }catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -208,20 +206,26 @@ public class TakeOrderFormController {
         int qty = Integer.parseInt(txtQty.getText());
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         double totalCost = unitPrice * qty;
+        int qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
 
         String description = txtDesc.getText();
         String stockItem = txtSelectproduct.getText();
 
+        if (qtyOnHand < qty) {
+            new Alert(Alert.AlertType.WARNING, "Out Of Stock...!").show();
+            return;
+        }
+
         CartTM isExists = isExists(cmbItemCode.getValue());
-        if (isExists!=null){
-            for (CartTM temp:tmList) {
-                if (temp.equals(isExists)){
-                    temp.setQty((temp.getQty()+qty));
-                    temp.setTotalCost(temp.getTotalCost()+totalCost);
+        if (isExists != null) {
+            for (CartTM temp : tmList) {
+                if (temp.equals(isExists)) {
+                    temp.setQty((temp.getQty() + qty));
+                    temp.setTotalCost(temp.getTotalCost() + totalCost);
                 }
             }
-        }else{
-           Button btn = new Button("Delete");
+        } else {
+            Button btn = new Button("Delete");
 
             CartTM tm = new CartTM(
                     cmbItemCode.getValue(),
@@ -234,8 +238,8 @@ public class TakeOrderFormController {
             );
 
             btn.setOnAction(e -> {
-                for(CartTM tempTm:tmList){
-                    if(tempTm.getId().equals(tm.getId())){
+                for (CartTM tempTm : tmList) {
+                    if (tempTm.getId().equals(tm.getId())) {
                         tmList.remove(tempTm);
                         calculateTotal();
                     }
@@ -247,39 +251,33 @@ public class TakeOrderFormController {
         tblItemDetails.refresh();
         calculateTotal();
         quntityChange();
+        txtQty.clear();
     }
 
     private void quntityChange() {
         int value = Integer.parseInt(txtQtyOnHand.getText());
-        if(!txtQty.getText().equals("") & (value>0) ){
+        if (!txtQty.getText().equals("") & (value > 0)) {
             int q = Integer.parseInt(txtQty.getText());
             int q2 = Integer.parseInt(txtQtyOnHand.getText());
-            int result= q2 - q;
-
-            if(result<=0){
-                new Alert(Alert.AlertType.WARNING,"Out Of Stock...!").show();
-            }else {
-                txtQtyOnHand.setText(String.valueOf(result));
-            }
-
+            int result = q2 - q;
         }
     }
 
     private void calculateTotal() {
         double total = 0;
-        for(CartTM tm: tmList){
-            total+=tm.getTotalCost();
+        for (CartTM tm : tmList) {
+            total += tm.getTotalCost();
         }
         txtTotal.setText(String.valueOf(total));
     }
 
     private CartTM isExists(String itemCode) {
-        for(CartTM tm:tmList){
-            if(tm.getId().equals(itemCode)){
+        for (CartTM tm : tmList) {
+            if (tm.getId().equals(itemCode)) {
                 return tm;
             }
         }
-        return  null;
+        return null;
     }
 
     public void PlaceOrderOnAction(ActionEvent actionEvent) throws SQLException {
@@ -307,7 +305,7 @@ public class TakeOrderFormController {
             );
         }
 
-        Connection connection  = null;
+        Connection connection = null;
 
         try {
 
@@ -316,21 +314,21 @@ public class TakeOrderFormController {
 
             boolean isOrderSaved = new CusOrderCrudController().saveOrder(order);
             if (isOrderSaved) {
-                boolean isDetailsSaved=new CusOrderCrudController().saveOrderDetails(details);
-                if (isDetailsSaved){
+                boolean isDetailsSaved = new CusOrderCrudController().saveOrderDetails(details);
+                if (isDetailsSaved) {
                     connection.commit();
-                    new Alert(Alert.AlertType.CONFIRMATION,"Saved Successfully...!").showAndWait();
-                }else{
+                    new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully...!").showAndWait();
+                } else {
                     connection.rollback();
-                    new Alert(Alert.AlertType.ERROR,"Error...!").show();
+                    new Alert(Alert.AlertType.ERROR, "Error...!").show();
                 }
-            }else {
+            } else {
                 new Alert(Alert.AlertType.ERROR, "Error...!").show();
             }
 
-        }catch (SQLException | ClassNotFoundException e){
+        } catch (SQLException | ClassNotFoundException e) {
 
-        }finally {
+        } finally {
             connection.setAutoCommit(true);
         }
         clearText1();
@@ -348,6 +346,7 @@ public class TakeOrderFormController {
         txtQtyOnHand.clear();
         txtUnitPrice.clear();
         txtQty.clear();
+        tblItemDetails.getItems().clear();
     }
 
     public void backCustomerFormOnAction(ActionEvent actionEvent) throws IOException {
@@ -365,20 +364,20 @@ public class TakeOrderFormController {
 
         HashMap paramMap = new HashMap();
 
-        paramMap.put("orderId",orderId);
-        paramMap.put("name",name);
-        paramMap.put("address",address);
-        paramMap.put("contactNo",contactNo);
-        paramMap.put("total",total);
+        paramMap.put("orderId", orderId);
+        paramMap.put("name", name);
+        paramMap.put("address", address);
+        paramMap.put("contactNo", contactNo);
+        paramMap.put("total", total);
 
 
-        try{
+        try {
             JasperReport compileReport = (JasperReport) JRLoader.loadObject(this.getClass().getResource("/view/Report/TakeOrder1.jasper"));
             ObservableList<Stock> items = tblItemDetails.getItems();
             JasperPrint jasperPrint = JasperFillManager.fillReport(compileReport, paramMap, new JRBeanArrayDataSource(tblItemDetails.getItems().toArray()));
-            JasperViewer.viewReport(jasperPrint,false);
+            JasperViewer.viewReport(jasperPrint, false);
 
-        }catch(JRException ex){
+        } catch (JRException ex) {
             ex.printStackTrace();
         }
 

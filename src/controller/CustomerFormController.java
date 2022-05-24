@@ -72,7 +72,6 @@ public class CustomerFormController {
             }
         });
 
-
         Pattern namePattern = Pattern.compile("^[A-z]{3,10}[ ][A-z]{3,10}$");
         Pattern addressPattern = Pattern.compile("^[A-z0-9/ ]{5,30}$");
         Pattern emailPattern = Pattern.compile("^[A-Za-z0-9!#$%&*+/=?_]{3,}(@gmail.com)$");
@@ -82,7 +81,6 @@ public class CustomerFormController {
         map.put(txtAddress,addressPattern);
         map.put(txtEmail,emailPattern);
         map.put(txtContact,contactPattern);
-
     }
 
     private void setData(Customer c) {
